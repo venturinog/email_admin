@@ -251,7 +251,7 @@ class sieve {
    * rights to admin the user.  This is to allow admins to edit/view users
    * scripts without having to know the user's password.  Very handy.
    */
-  function sieve($host, $port, $user, $pass, $auth="", $auth_types='PLAIN') {
+  function __construct($host, $port, $user, $pass, $auth="", $auth_types='PLAIN') {
     $this->host=$host;
     $this->port=$port;
     $this->user=$user;
