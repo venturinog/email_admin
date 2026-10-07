@@ -137,7 +137,7 @@ class paloSantoEmailRelay {
         else return 0;
     }
 
-    function checkSMTP($smtp_server, $smtp_port=25, $username, $password, $auth_enabled=false, $tls_enabled=true)
+    function checkSMTP($smtp_server, $smtp_port, $username, $password, $auth_enabled=false, $tls_enabled=true)
     {
         require_once("PHPMailer/class.smtp.php");
 
