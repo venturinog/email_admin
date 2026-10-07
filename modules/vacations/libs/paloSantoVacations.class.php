@@ -234,7 +234,7 @@ class paloSantoVacations {
                 $this->errMsg = _tr("Error: Impossible upload ")."scriptTest.sieve";
                 return false;
             }else{
-                exec("echo ".$SIEVE['PASS']." | sieveshell ".escapeshellarg("--username=".$SIEVE['USER']).
+                exec("echo ".escapeshellarg($SIEVE['PASS'])." | sieveshell ".escapeshellarg("--username=".$SIEVE['USER']).
             " --authname=".$SIEVE['AUTHUSER']." ".$SIEVE['HOST'].":".$SIEVE['PORT'].
             " -e 'activate scriptTest.sieve'",$flags, $status);
                 if($status!=0){
@@ -510,7 +510,8 @@ SCRIPT;
         $result['status']  = false;
         $result['actived'] = "";
 
-        exec("echo ".$SIEVE['PASS']." | sieveshell --username=".$SIEVE['USER']." --authname=".$SIEVE['AUTHUSER']." ".$SIEVE['HOST'].":".$SIEVE['PORT']." -e 'list'",$flags, $status);
+        exec("echo ".escapeshellarg($SIEVE['PASS'])." | sieveshell ".escapeshellarg("--username=".$SIEVE['USER']).
+        " --authname=".$SIEVE['AUTHUSER']." ".$SIEVE['HOST'].":".$SIEVE['PORT']." -e 'list'",$flags, $status);
 
         if($status != 0){
             return null;
