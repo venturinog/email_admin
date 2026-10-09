@@ -3,7 +3,7 @@
 Summary: Issabel Email Module
 Name: issabel-email_admin
 Version: 6.0.0
-Release: 2
+Release: 3
 License: GPL
 Group:   Applications/System
 Source0: issabel-%{modname}-%{version}.tar.gz
@@ -11,7 +11,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildArch: noarch
 Requires(pre): issabel-framework >= 5.0.0-1
 Requires(pre): postfix, spamassassin, cyrus-imapd
-Requires: mailman >= 2.1.9
+Requires: mailman3-enhanced
 Requires: issabel-php-phpmailer
 
 # sieveshell requires at least plain authentication method
@@ -204,3 +204,5 @@ fi
 /usr/share/issabel/privileged/*
 
 %changelog
+* Fri Oct 09 2026 Issabel Foundation <info@issabel.org> - 6.0.0-3
+- Require mailman3-enhanced instead of mailman, which does not exist in EL10.
