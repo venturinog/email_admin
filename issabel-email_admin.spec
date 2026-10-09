@@ -3,18 +3,16 @@
 Summary: Issabel Email Module
 Name: issabel-email_admin
 Version: 6.0.0
-Release: 1
+Release: 2
 License: GPL
 Group:   Applications/System
 Source0: issabel-%{modname}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildArch: noarch
 Requires(pre): issabel-framework >= 5.0.0-1
-Requires(pre): php-imap
 Requires(pre): postfix, spamassassin, cyrus-imapd
 Requires: mailman >= 2.1.9
-Requires: php-jpgraph
-Requires: php-PHPMailer
+Requires: issabel-php-phpmailer
 
 # sieveshell requires at least plain authentication method
 Requires: cyrus-sasl-plain
