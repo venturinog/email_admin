@@ -13,7 +13,13 @@ It uses the [Asterisk©](http://www.asterisk.org/ "Asterisk Home Page") open sou
 Email Admin
 ----
 
-Email Adminsitration module for Issabel.
+Outbound SMTP relay configuration for Issabel.
+
+Issabel 6 does not ship a mail server: there are no local mailboxes and no
+inbound SMTP. This module keeps only the **SMTP Relay** page, which configures a
+send-only Postfix (satellite) that forwards all locally generated mail
+(Asterisk voicemail, `mail()`, PHPMailer, `CI_Email`, cron, fail2ban) to an
+external smarthost with SASL/TLS.
 
 
 License

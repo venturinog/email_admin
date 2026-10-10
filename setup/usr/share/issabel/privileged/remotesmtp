@@ -172,7 +172,7 @@ function action_enableremotesmtp($opt)
         $lines = file($sConfigFile);
         if (!is_array($lines)) {
             $conn->rollBack();
-        	exit_error("ERR: failed to read $sConfigFile\n");
+        	error_exit("ERR: failed to read $sConfigFile\n");
         }
         for ($i = 0; $i < count($lines); $i++) {
         	$regs = NULL;
@@ -186,7 +186,7 @@ function action_enableremotesmtp($opt)
         foreach ($properties as $k => $v) $lines[] = "$k = $v\n";
         if (file_put_contents($sConfigFile, $lines) === FALSE) {
             $conn->rollBack();
-            exit_error("ERR: failed to write $sConfigFile\n");
+            error_exit("ERR: failed to write $sConfigFile\n");
         }
 
     	$conn->commit();
@@ -197,8 +197,7 @@ function action_enableremotesmtp($opt)
     }
     
     if ($bSuccess) {
-    	system('/sbin/service saslauthd restart');
-        system('/sbin/service postfix restart');
+        system('/usr/bin/systemctl restart postfix');
     }
     return $bSuccess;
 }
