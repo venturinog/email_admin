@@ -3,7 +3,7 @@
 Summary: Issabel Email Module
 Name: issabel-email_admin
 Version: 6.0.0
-Release: 5
+Release: 6
 License: GPL
 Group:   Applications/System
 Source0: issabel-%{modname}-%{version}.tar.gz
@@ -123,6 +123,10 @@ fi
 /usr/share/issabel/privileged/*
 
 %changelog
+* Mon Oct 12 2026 Issabel Foundation <info@issabel.org> - 6.0.0-6
+- remote_smtp: drop the jQuery iButton plugin (and its assets); the status
+  toggle now uses the theme's Bootstrap 5 switch.
+
 * Fri Oct 09 2026 Issabel Foundation <info@issabel.org> - 6.0.0-5
 - Drop the local mail server: no more postfix local delivery, cyrus-imapd,
   spamassassin or mailman. Keep only the outbound SMTP relay (remote_smtp)

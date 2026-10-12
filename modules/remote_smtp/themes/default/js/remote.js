@@ -13,12 +13,8 @@ $(document).ready(function(){
         }
     });
 
-    $('input[name=chkoldstatus]').iButton({
-        labelOn: "On",
-        labelOff: "Off",
-        change: function ($input){
-            $("#status").val($input.is(":checked") ? "on" : "off");
-        }
+    $('input[name=chkoldstatus]').on('change', function (){
+        $("#status").val($(this).is(":checked") ? "on" : "off");
     }).trigger("change");
 
 //	changeActivateDefault();
