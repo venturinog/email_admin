@@ -3,7 +3,7 @@
 Summary: Issabel Email Module
 Name: issabel-email_admin
 Version: 6.0.0
-Release: 6
+Release: 7
 License: GPL
 Group:   Applications/System
 Source0: issabel-%{modname}-%{version}.tar.gz
