@@ -3,7 +3,7 @@
 Summary: Issabel Email Module
 Name: issabel-email_admin
 Version: 6.0.0
-Release: 7
+Release: 8
 License: GPL
 Group:   Applications/System
 Source0: issabel-%{modname}-%{version}.tar.gz
@@ -123,6 +123,10 @@ fi
 /usr/share/issabel/privileged/*
 
 %changelog
+* Tue Oct 13 2026 Issabel Foundation <info@issabel.org> - 6.0.0-8
+- remote_smtp: fix checkSMTP() reading a non-existent PHPMailer 6 error key
+  ($error['smtp_msg']); use $error['detail'] to detect a missing STARTTLS.
+
 * Mon Oct 12 2026 Issabel Foundation <info@issabel.org> - 6.0.0-6
 - remote_smtp: drop the jQuery iButton plugin (and its assets); the status
   toggle now uses the theme's Bootstrap 5 switch.

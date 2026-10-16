@@ -165,7 +165,8 @@ class paloSantoEmailRelay {
         if($auth_enabled){
             if(!$smtp->Authenticate($username,$password)){
                 $error = $smtp->getError();
-                if(preg_match("/STARTTLS/",$error['smtp_msg']))
+                $detail = isset($error['detail']) ? $error['detail'] : '';
+                if(stripos($detail, 'STARTTLS') !== false)
                     return array("ERROR" => "Authenticate Error, TLS must be activated", "SMTP_ERROR" => $smtp->getError());
                 else
                     return array("ERROR" => "Authenticate not accepted from server", "SMTP_ERROR" => $smtp->getError());
