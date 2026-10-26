@@ -1,1 +1,6 @@
-ALTER TABLE member_list ADD COLUMN namemember varchar(50);
+-- Obsolete in Issabel 6: `member_list` belonged to the local mail server
+-- (Cyrus/Mailman), which is no longer part of the distribution. The table
+-- never exists on a fresh install, so this ALTER aborted the whole `email`
+-- schema install and, with it, every script queued behind it in
+-- /var/spool/issabel-mysqldbscripts. Kept as a no-op so the migration
+-- numbering stays intact.

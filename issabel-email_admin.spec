@@ -3,7 +3,7 @@
 Summary: Issabel Email Module
 Name: issabel-email_admin
 Version: 6.0.0
-Release: 9
+Release: 10
 License: GPL
 Group:   Applications/System
 Source0: issabel-%{modname}-%{version}.tar.gz
@@ -123,6 +123,14 @@ fi
 /usr/share/issabel/privileged/*
 
 %changelog
+* Mon Oct 26 2026 Issabel Foundation <info@issabel.org> - 6.0.0-10
+- Turn the 2.2.0-1 migration into a no-op. It altered `member_list`, a table
+  that belonged to the local mail server removed in Issabel 6. On a fresh
+  install the table never exists, so sqlite3 failed and issabel-dbprocess
+  deferred the whole `email` schema. Because the deferred script was then fed
+  to mysql by firstboot, it failed again and aborted the queue, leaving every
+  script behind it (endpointconfig, meetme) unapplied.
+
 * Fri Oct 16 2026 Issabel Foundation <info@issabel.org> - 6.0.0-9
 - Escape the rpm queryformat used to record the pre-version on upgrade.
   The VERSION and RELEASE macros were expanded at build time, so %pre always
